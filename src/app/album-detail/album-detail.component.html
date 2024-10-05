@@ -1,0 +1,10 @@
+<div class="album-image">
+  <img mat-card-image [src]="data['im:image'][2].label" alt="Album Cover">
+</div>
+<div class="container rounded-pill">
+  <h2 mat-dialog-title>{{ data['im:name'].label }}</h2>
+  <mat-dialog-content>Artist: {{ data['im:artist'].label }}</mat-dialog-content>
+  <mat-dialog-content>Price: {{ data['im:price'].label }} {{data['im:price'].attributes.currency}}</mat-dialog-content>
+  <mat-dialog-content>Release Date: {{ data['im:releaseDate'].attributes.label }}</mat-dialog-content>
+  <mat-dialog-content class="right">{{ data['rights'].label }}</mat-dialog-content>
+</div>

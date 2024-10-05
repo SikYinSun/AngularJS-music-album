@@ -1,0 +1,44 @@
+<div class="input-group mb-3 mt-5">
+  <div class="input-group-prepend">
+    <span class="input-group-text border border-2"><i class="bi bi-journal-album" style="font-size: 2rem;"></i></span>
+  </div>
+  <input type="text" class="form-control border border-2" [(ngModel)]="serach" placeholder="Search albums with album name or artist name..." (input)="searchQuery()">
+</div>
+
+<div class="d-sm-flex flex-sm-column justify-content-around align-items-center gap-2 d-md-flex flex-md-row justify-content-around align-items-center mt-2 mb-3">
+  <div>
+    <label for="categorySelect">Sort by category:</label>
+    <select class="form-select-sm ms-2" [(ngModel)]="selectedCategory" (ngModelChange)="sortAlbumsByCategory($event)">
+      <option value="" disabled>Sort by category</option>
+      <option value="All">All</option> 
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+  </div>
+  
+  <div>
+    <label for="sortSelect">Sort by:</label>
+    <select class="form-select-sm ms-2" [(ngModel)]="selectSort" (ngModelChange)="sortOptionChange()">
+      <option value="" disabled>Select Sorting Option</option>
+      <option value="priceLowToHigh">Price (Low to High)</option>
+      <option value="priceHighToLow">Price (High to Low)</option>
+      <option value="artistNameAlphabetical">Artist Name (Alphabetical)</option>
+      <option value="releaseDateOldToNew">Release Date (Oldest to Newest)</option>
+      <option value="releaseDateNewToOld">Release Date (Newest to Oldest)</option>
+    </select>
+  </div>
+</div>
+  
+<div class="row">
+  <div class="col-md-4" *ngFor="let album of filteredAlbums">
+    <div class="card mb-4 mx-auto cards" style="max-width: 18rem;" (click)="openAlbum(album)">
+      <div>
+        <img [src]="album['im:image'][2].label" class="card-img-top img-fluid" alt="Album Cover">
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">{{ album['im:name'].label }}</h4>
+        <p class="card-text">Artist: {{ album['im:artist'].label }}</p>
+        <p class="card-text">Release Date: {{ album['im:releaseDate'].attributes.label }}</p>
+      </div>
+    </div>
+  </div>
+</div>
