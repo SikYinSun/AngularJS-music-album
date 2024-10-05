@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
 
 ## Live Demo
-Check out the live demo of the Book Store on Netlify: [Music Albums](https://fastidious-kringle-b02651.netlify.app/)
+Check out the live demo of the Music Albums on Netlify: [Music Albums](https://fastidious-kringle-b02651.netlify.app/)
 
 ## Features
 
